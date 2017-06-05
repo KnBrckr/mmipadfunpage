@@ -26,7 +26,7 @@
  * @author Kenneth J. Brucker <ken.brucker@action-a-day.com>
  */
 
-namespace AAD\PluginPrefix;
+namespace AAD\mmipadfunpage;
 
 
 /*

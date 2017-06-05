@@ -31,7 +31,7 @@
  *  - Make values a protected variable for visiblity in parent class
  */
 
-namespace AAD\PluginPrefix;
+namespace AAD\mmipadfunpage;
 
 /*
  *  Protect from direct execution

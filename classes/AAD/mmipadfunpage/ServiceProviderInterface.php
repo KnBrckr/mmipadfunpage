@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace AAD\PluginPrefix;
+namespace AAD\mmipadfunpage;
 
 /**
  * Pimple service provider interface.

@@ -1,15 +1,15 @@
 <?php
 
 /*
-  Plugin Name: Plugin Name
+  Plugin Name: mmipadfunpage
   Plugin URI:  http://action-a-day.com/
-  Description: Plugin Description
+  Description: mmipadfunpage Site Customizations
   Version:     0.1
   Author:      Kenneth J. Brucker
   Author URI:  http://action-a-day.com
   License:     GPL2
   License URI: https://www.gnu.org/licenses/gpl-2.0.html
-  Domain Path: /languages
+  Domain Path: /i18n/languages
   Text Domain: aad-plugin-domain
 
   Copyright 2017 Kenneth J. Brucker  (email : ken.brucker@action-a-day.com)
@@ -29,12 +29,12 @@
  */
 
 /**
- * @package AAD\PluginPrefix
+ * @package AAD\mmipadfunpage
  * 
  * Uses the Pimple framework defined at https://pimple.sensiolabs.org
  * 
  * Review files in classes directory
- *  - Change PluginPrefix
+ *  - Change mmipadfunpage
  *  - Confirm Namespace usage
  */
 
@@ -51,14 +51,14 @@ if ( !defined( 'WP_PLUGIN_DIR' ) ) {
  * Define classes that will be used
  */
 
-use AAD\PluginPrefix\Plugin;
-use AAD\PluginPrefix\ClassName;
+use AAD\mmipadfunpage\Plugin;
+use AAD\mmipadfunpage\ClassName;
 
 /**
  * Define autoloader for plugin
  */
 spl_autoload_register( function ( $class_name ) {
-	if ( false !== strpos( $class_name, 'AAD\PluginPrefix' ) ) {
+	if ( false !== strpos( $class_name, 'AAD\mmipadfunpage' ) ) {
 		$classes_dir = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR;
 		$class_file	 = str_replace( '\\', DIRECTORY_SEPARATOR, $class_name ) . '.php';
 		require $classes_dir . $class_file;

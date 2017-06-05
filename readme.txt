@@ -1,19 +1,25 @@
-=== Plugin Name ===
+=== mmipadfunpage Site ===
 Contributors: draca
 Donate link: http://action-a-day.com
-Tags: site
+Tags: site, mmipadfunpage
 Requires at least: 4.7.4
 Tested up to: 4.7.4
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Plugin Short Description
+Customizations for the mmipadfunpage site
 
 == Description ==
 
 Plugin Long Description
 
+= [roamers] shortcode =
+
+    [roamer]
+    roamer,weapon,count
+	...
+    [/roamer]
 
 == Installation ==
 
