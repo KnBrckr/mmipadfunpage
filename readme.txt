@@ -14,12 +14,12 @@ Customizations for the mmipadfunpage site
 
 Plugin Long Description
 
-= [roamers] shortcode =
+= [banish_event] shortcode =
 
-    [roamer]
+    [banish_event]
     roamer,weapon,count
 	...
-    [/roamer]
+    [/banish_event]
 
 == Installation ==
 

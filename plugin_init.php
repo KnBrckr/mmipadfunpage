@@ -10,7 +10,7 @@
   License:     GPL2
   License URI: https://www.gnu.org/licenses/gpl-2.0.html
   Domain Path: /i18n/languages
-  Text Domain: aad-plugin-domain
+  Text Domain: aad-mmipadfunpage-domain
 
   Copyright 2017 Kenneth J. Brucker  (email : ken.brucker@action-a-day.com)
 
@@ -32,12 +32,7 @@
  * @package AAD\mmipadfunpage
  * 
  * Uses the Pimple framework defined at https://pimple.sensiolabs.org
- * 
- * Review files in classes directory
- *  - Change mmipadfunpage
- *  - Confirm Namespace usage
  */
-
 /**
  *  Protect from direct execution
  */
@@ -52,7 +47,7 @@ if ( !defined( 'WP_PLUGIN_DIR' ) ) {
  */
 
 use AAD\mmipadfunpage\Plugin;
-use AAD\mmipadfunpage\ClassName;
+use AAD\mmipadfunpage\banish_eventSC;
 
 /**
  * Define autoloader for plugin
@@ -71,12 +66,25 @@ spl_autoload_register( function ( $class_name ) {
 add_action( 'plugins_loaded', function () {
 	$plugin = new Plugin();
 
-	$plugin[ 'version' ]	 = '0.1';
-	$plugin[ 'path' ]		 = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR;
-	$plugin[ 'url' ]		 = plugin_dir_url( __FILE__ );
+	$plugin[ 'version' ]			 = '0.1';
+	$plugin[ 'path' ]				 = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR;
+	$plugin_dir_url = plugin_dir_url( __FILE__ );
+	$plugin[ 'urls' ] = array(
+		'plugin' => $plugin_dir_url,
+		'js'	 => $plugin_dir_url . 'assets/js/',
+		'css'	 => $plugin_dir_url . 'assets/css/',
+		'fonts'  => $plugin_dir_url . 'assets/fonts/',
+		'images' => $plugin_dir_url . 'assets/images/'
+	);
+
+	/**
+	 * [roamers_event] shortcode
+	 */
+	$plugin[ 'sc_roamers_event' ] = function ($c) {
+		return new AAD\mmipadfunpage\banish_eventSC( $c[ 'version' ], $c[ 'urls' ] );
+	};
 
 	/*
-	 * 
 	 * Instantiate needed plugin classes
 
 	  $variationTableService = function ($product) {

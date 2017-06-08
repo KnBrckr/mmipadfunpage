@@ -22,7 +22,7 @@
 /**
  * Plugin Container
  * 
- * @package woocommerce-variation-editor
+ * @package mmipadfunpage
  * @author Kenneth J. Brucker <ken.brucker@action-a-day.com>
  */
 
