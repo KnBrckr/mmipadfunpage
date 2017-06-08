@@ -72,7 +72,7 @@ class banish_eventSC {
 		add_shortcode( 'banish_event', array( $this, 'sc_banish_event') );
 		
 		/**
-		 * Enqueue Javascript
+		 * Register Javascript
 		 */
 		wp_register_script(
 			'aad-mmipadfunpage-banish-eventSC', // Handle

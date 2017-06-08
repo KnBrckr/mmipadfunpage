@@ -26,6 +26,12 @@ var aad_mmipadfunpage = {
 		});
 	},
 	
+	/**
+	 * Get all events that are defined on the current page
+	 * 
+	 * @param {type} $ jQuery object
+	 * @returns {Array|aad_mmipadfunpage.get_events.events} Array of data for events defined on page
+	 */
 	get_events: function($) {
 		var events = new Array;
 		
@@ -99,6 +105,12 @@ var aad_mmipadfunpage = {
 		return banish_list;
 	},
 	
+	/**
+	 * When inventory fields are updated, recalculate the banish totals on the page
+	 * 
+	 * @param {void}
+	 * @returns {undefined}
+	 */
 	upate_banish_total: function() {
 		function getInventory(weaponID) {
 			inventory = parseInt(jQuery("input[id='" + weaponID + "']").val()) || 0;
