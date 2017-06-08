@@ -51,7 +51,7 @@ class banish_eventSC {
 	 * Instantiate class
 	 * 
 	 * @param string $version Plugin version
-	 * @param array hash of asset paths
+	 * @param array hash of asset paths used by the plugin
 	 * @return void
 	 */
 	public function __construct( $version, $urls) {
@@ -63,6 +63,7 @@ class banish_eventSC {
 	/**
 	 * Plug into WP
 	 * 
+	 * @param void
 	 * @return void
 	 */
 	public function run() {
@@ -72,17 +73,42 @@ class banish_eventSC {
 		add_shortcode( 'banish_event', array( $this, 'sc_banish_event') );
 		
 		/**
-		 * Register Javascript
+		 * Register Javascript and CSS
 		 */
 		wp_register_script(
-			'aad-mmipadfunpage-banish-eventSC', // Handle
-			$this->urls['js'] . 'banish_eventSC.js', // URL to .js file
-			array( 'jquery-core' ), // Dependencies
-			$this->version, // Script version
-			true			// Place in footer to allow localization if needed
+			'aad-mmipadfunpage-banish-eventSC',			// Handle
+			$this->urls['js'] . 'banish_eventSC.js',	// URL to .js file
+			array( 'jquery-core' ),						// Dependencies
+			$this->version,								// Script version
+			true										// Place in footer
 		);
+		wp_register_style(
+			'aad-mmipadfunpage-banish-event-css',		// Handle
+			$this->urls['css'] . 'banish_event.css',	// URL to CSS file
+			array(),									// No Dependencies 
+			$this->version								// Script version
+		);
+		
+		add_action( 'template_redirect', array( $this, 'enqueue_css' ) );
 	}
 	
+	/**
+	 * If the current page/post includes the shortcode, enqueue CSS file.
+	 * 
+	 * @param void
+	 * @return void
+	 */
+	public function enqueue_css( ) {
+		if ( is_singular() ) {
+			$post = get_post();
+			
+			if ( has_shortcode( $post->post_content, 'banish_event' ) ) {
+				wp_enqueue_style( 'aad-mmipadfunpage-banish-event-css' );
+			}
+		}
+	}
+
+
 	/**
 	 * Display roamers form
 	 * 
@@ -136,8 +162,9 @@ class banish_eventSC {
 		/**
 		 * Create form to collect user inventory for each weapon
 		 */
-		$output .= '<form class="banish-event-inventory"><fieldset>';
-		$output .= '<legend>Your Inventory</legend>';
+		$output .= '<form class="banish-event-form">';
+		$output .= '<h1>Enter Your Inventory:</h1>';
+		$output .= '<fieldset class="banish-event-inventory">';
 		foreach ( $banish_weapons as $weapon_id => $weapon ) {
 			$output .= '<div>';
 			$output .= '<input id="' . $weapon_id . '" type="number" value="0" min="0" class="weapon-inventory">';
@@ -156,7 +183,7 @@ class banish_eventSC {
 		 * $banish_total[weapon_id]={roamer_id, uses};
 		 */
 		
-		$output .= "<p class='can-banish'>You can Banish <span id='banish-total-${instance}'>0</span> Roamers</p>";
+		$output .= "<h1 class='can-banish'>You can Banish <span id='banish-total-${instance}'>0</span> Roamers</h1>";
 		
 		/**
 		 * Create list of weapons and how many roamers each weapon can banish
@@ -169,10 +196,12 @@ class banish_eventSC {
 			$output .= '<dt class="weapon">Using your ' . esc_html( $weapon['name'] ) . ':<dd>';
 			foreach ( $weapon['roamers'] as $roamer ) {
 				if ( $separator ) 
-					$output .= ' <span class="separator">OR<span> ';
+					$output .= ' <span class="banish-separator">OR</span> ';
 				$uses = (integer) $roamer['uses'];
+				$output .= '<span class="banish-roamer">';
 				$output .= "<span id='${roamer['id']}' data-weapon='$weapon_id' data-uses='$uses' class='banish-roamer-cnt'>0</span> ";
 				$output .= esc_html( $roamer['name'] ) . " (uses $uses)";
+				$output .= '</span>';
 				$separator = true;
 			}
 		}

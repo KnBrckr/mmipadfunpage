@@ -1,0 +1,62 @@
+/**
+ * Copyright (C) 2017 Kenneth J. Brucker <ken.brucker@action-a-day.com>
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+/**
+ * Style Sheet for banish_event shortcode
+ * 
+ * @package mmipadfunpage
+ * @author Kenneth J. Brucker <ken.brucker@action-a-day.com>
+ */
+
+.banish-event form h1 {
+	font-weight: bold;
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+
+.banish-event-inventory {
+	margin-left: 2em;
+}
+
+.banish-event-inventory input {
+	font-size: 1.25em;
+	width: 3em;
+	margin-right: 2em;
+}
+
+.banish-event .can-banish {
+	margin-top: 10px;
+	font-size: 2em;
+}
+
+.banish-event-roamers, .banish-event-roamers dd {
+	margin-left: 2em;
+}
+
+.banish-roamer {
+	min-width: 220px;
+	display: inline-block;
+}
+.banish-separator {
+	padding: 0 15px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
