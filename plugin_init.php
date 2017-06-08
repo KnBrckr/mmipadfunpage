@@ -47,7 +47,6 @@ if ( !defined( 'WP_PLUGIN_DIR' ) ) {
  */
 
 use AAD\mmipadfunpage\Plugin;
-use AAD\mmipadfunpage\banish_eventSC;
 
 /**
  * Define autoloader for plugin
@@ -80,25 +79,12 @@ add_action( 'plugins_loaded', function () {
 	/**
 	 * [roamers_event] shortcode
 	 */
-	$plugin[ 'sc_roamers_event' ] = function ($c) {
+	$plugin[ 'sc_banish_event' ] = function ($c) {
 		return new AAD\mmipadfunpage\banish_eventSC( $c[ 'version' ], $c[ 'urls' ] );
 	};
 
-	/*
-	 * Instantiate needed plugin classes
-
-	  $variationTableService = function ($product) {
-	  $varTable = new VariationTable( $product );
-	  return $varTable;
-	  };
-	  $plugin['VariationScreen'] = function ($p) use ($variationTableService) {
-	  $varScreen = new VariationScreen( $p['version'], $p['url'], $variationTableService );
-	  return $varScreen;
-	  };
-
-	  $variationScreen = $plugin[ 'VariationScreen' ];
-
+	/**
+	 * Hook into WordPress
 	 */
-
 	$plugin->run();
 } );
