@@ -24,6 +24,7 @@ var aad_mmipadfunpage = {
 		$('.banish-event .weapon-inventory').change(function() {
 			aad_mmipadfunpage.upate_banish_total();
 		});
+		$(window).unbind('beforeunload');
 	},
 	
 	/**
