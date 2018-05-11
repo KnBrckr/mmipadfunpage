@@ -28,6 +28,10 @@ Plugin Long Description
 
 == Changelog ==
 
+= 0.1.1 =
+
+* FIX: Improper usage of wp_register_script() and wp_register_style()
+
 = 0.1 =
 * First Release
 
