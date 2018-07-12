@@ -1,19 +1,20 @@
 {
-    "name" : "action-a-day/Plugin-name",
-    "description" : "",
-    "keywords" : ["wordpress", "plugin"],
-    "homepage" : "http://action-a-day.com",
-    "license" : "",
-    "authors" : [
-        {
-            "name" : "Kenneth J. Brucker",
-            "email" : "ken.brucker@action-a-day.com",
-            "homepage" : "http://action-a-day.com"
-        }
-    ],
-    "type" : "wordpress-plugin",
-    "require": {
-        "php" : ">=5.4",
-        "composer/installers": "~1.0"
-    }
+	"name": "pumastudios/mmipadfunpage",
+	"description": "mmipadfunpage Site Customizations",
+	"keywords": ["wordpress",
+		"plugin", "tweaks"],
+	"homepage": "https://pumastudios.com",
+	"license": "GPL2",
+	"authors": [
+		{
+			"name": "Kenneth J. Brucker",
+			"email": "ken@pumastudios.com",
+			"homepage": "https://pumastudios.com"
+		}
+	],
+	"type": "wordpress-plugin",
+	"require": {
+		"php": ">=5.3.2",
+		"composer/installers": "^1.0"
+	}
 }
