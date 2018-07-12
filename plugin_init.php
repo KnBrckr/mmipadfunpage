@@ -4,7 +4,7 @@
   Plugin Name: mmipadfunpage
   Plugin URI:  http://action-a-day.com/
   Description: mmipadfunpage Site Customizations
-  Version:     0.1
+  Version:     0.1.1
   Author:      Kenneth J. Brucker
   Author URI:  http://action-a-day.com
   License:     GPL2
